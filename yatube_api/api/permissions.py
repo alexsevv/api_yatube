@@ -1,5 +1,4 @@
 from rest_framework import permissions
-from rest_framework.permissions import SAFE_METHODS
 
 
 # https://django.fun/ru/docs/django-rest-framework/3.12/api-guide/permissions/
