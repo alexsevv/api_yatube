@@ -21,7 +21,6 @@ class PostsViewsSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user)
 
 
-# https://django.fun/ru/docs/django-rest-framework/3.12/api-guide/viewsets/#readonlymodelviewset
 class GroupsViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
@@ -31,8 +30,6 @@ class CommentsViewSet(viewsets.ModelViewSet):
     serializer_class = CommentSerializer
     permission_classes = [IsAuthenticated, IsAuthorOrReadOnly]
 
-    # https://django.fun/ru/docs/django-rest-framework/3.12/api-guide/generic-views/#get-queryset-self
-    # https://www.django-rest-framework.org/api-guide/generic-views/#get_querysetself
     def get_queryset(self):
         post_id = self.kwargs.get('post_id')
         post = get_object_or_404(Post, id=post_id)

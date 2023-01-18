@@ -11,7 +11,6 @@ class PostSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Post
-        # fields = ('__all__') лучше явное, чем не явное
         fields = ('id', 'text', 'pub_date', 'author', 'image', 'group')
 
 
